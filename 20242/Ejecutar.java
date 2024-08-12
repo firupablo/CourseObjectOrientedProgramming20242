@@ -46,5 +46,37 @@ public class Ejecutar {
 
         System.out.println(c + "grados centigrados equivalen a fharengeins: " + gradosFarenheit);
         System.out.println(f + "grados farenheit equivalen a celcius: " + gradosCentigrados);
+
+
+        //salario de un empleado
+        int sBruto = 1200000;
+        int deducciones = 80000;
+        int comision = 50000;
+        int sNeto = (sBruto - deducciones) + comision;
+
+        System.out.println("el salario final es de: " + sNeto);
+
+
+        // pesos a dolares y euros
+
+        final double dolar = 0.00025;
+        final double euro = 0.00023;
+        int peso = 50000;
+        double pdolar = peso * dolar;
+        double peuro = peso * euro;
+
+        System.out.println(peso + " pesos colombianos equivalen a " + pdolar + " dolares");
+        System.out.println(peso + " pesos colombianos equivalen a " + peuro + " euros");
+
+
+        // pago parqueadero
+
+        final int valorH = 2000;
+        int hora = 5;
+        double iva = 0.20;
+        double valor = ((valorH * hora)*iva) + (valorH * hora);
+
+        System.out.println("valor del parqueadero: $" + valor);
+        
     }
 }
