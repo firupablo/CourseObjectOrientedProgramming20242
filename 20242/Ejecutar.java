@@ -25,7 +25,6 @@ public class Ejecutar {
         // area circulo
 
         double r = 0.0;
-        final double PI = 3.1416; 
         r = 3;
         double areaCirculo = Math.PI * Math.pow(r,2);
         
