@@ -1,4 +1,10 @@
 /*
+public: El método es accesible desde cualquier parte del programa.
+private: El método es accesible solo dentro de la clase donde está definido.
+protected: El método es accesible desde la misma clase, clases derivadas y clases del mismo paquete.
+
+
+
  * tipos de metodos
  * 
  * sin retorno sin paramettros
@@ -13,7 +19,7 @@
  
      public static void main(String[] args) {
         System.out.println("------ AREA CUADRADO ------");
-        areaCuadrado(); // se llama al metodo que puede esttar ewn cualquier lado
+        areaCuadrado(); // invocacion super sonica de un metodo
         System.out.println("///////////////////////////");
         System.out.println("------ AREA CIRCULO ------");
         areaCirculo();
