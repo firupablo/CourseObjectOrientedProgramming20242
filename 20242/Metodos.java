@@ -10,7 +10,7 @@ protected: El método es accesible desde la misma clase, clases derivadas y clas
  * sin retorno sin paramettros
  * sin retorno con paramettros
  * con retorno sin paramettros
- * con retorno sin paramettros
+ * con retorno con parametros
  */
 
  import java.util.Scanner;
