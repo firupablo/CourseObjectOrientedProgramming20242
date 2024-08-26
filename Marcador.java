@@ -38,4 +38,8 @@ public class Marcador {
         return "Recargando marcador con " + cantidad + " de tinta";
         
     }
+
+    public String toString() {
+        return "{ Marcador : Nombre = " + nombre + ", Color = " + color + ", Diametro = " + diametro + ", Es borrable = " + esBorrable +" }";
+    }
 }

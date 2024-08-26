@@ -1,5 +1,5 @@
 
-public class Ejecutar {
+public class ejecutor {
     public static void main(String[] args){
         //Java la asignacion en con el =
         // a = 5
