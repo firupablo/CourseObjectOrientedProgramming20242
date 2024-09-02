@@ -1,5 +1,4 @@
 package ejercicio1;
-import java.util.Scanner;
 public class CuentaBancaria {
     private double saldo;
     private int numeroCuenta;
@@ -13,8 +12,10 @@ public class CuentaBancaria {
 
     /*metodos */
 
-    public String consultarSaldo() {
-        return "su saldo actual es: " + saldo;
+    public String consultarCuenta() {
+        System.out.println("Titular: " + titular);
+        System.out.println("Numero de cuenta: " + numeroCuenta);
+        return "Saldo: " + saldo;
     }
 
     public String retirarSaldo(double monto) {
