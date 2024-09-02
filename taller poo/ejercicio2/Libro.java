@@ -28,7 +28,7 @@ public class Libro {
             return "El libro " + titulo + " no se puede prestar";
         }else{
             prestado = true;
-            return "El libro " + titulo + " se ha prestado";
+            return "El libro " + titulo + " ahora es tuyo, recuerda devolverlo";
         }
     }
 
@@ -37,7 +37,7 @@ public class Libro {
             prestado = false;
             return "El libro " + titulo + " se ha devuelto";
         }else{
-            return "El libro " + titulo + " no se puede devolver";
+            return "Bro, como vas a devolver " + titulo + " si no lo has prestado, sos bobo?";
         }
     }
 

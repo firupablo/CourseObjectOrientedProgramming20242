@@ -2,7 +2,7 @@ package ejercicio2;
 import java.util.Scanner;
 public class ejercicio2 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         // crear libros
         Libro libro1 = new Libro("El principito", "Antoine de Saint-Exupéry", 15460, 200, false);
         Libro libro2 = new Libro("El alquimista", "Paulo Coelho", 56789, 150, false);
@@ -27,7 +27,7 @@ public class ejercicio2 {
                 switch(opcion){
                     case 1:
                         System.out.println("ingrese el numero del libro que desea consultar");
-                        int numLibro = scanner.nextInt();
+                        int numLibro = sn.nextInt();
                         switch(numLibro){
                             case 1:
                                 System.out.println(libro1.info());
@@ -51,7 +51,7 @@ public class ejercicio2 {
                         break;
                     case 2:
                         System.out.println("Ingrese el numero del libro que desea solicitar");
-                        int numLibroSolicitar = scanner.nextInt();
+                        int numLibroSolicitar = sn.nextInt();
                         switch(numLibroSolicitar){
                             case 1:
                                 System.out.println(libro1.prestar());
@@ -75,7 +75,7 @@ public class ejercicio2 {
                         break;
                      case 3:
                         System.out.println("Ingrese el numero del libro que desea devolver");
-                        int numLibroDevolver = scanner.nextInt();
+                        int numLibroDevolver = sn.nextInt();
                         switch(numLibroDevolver){
                             case 1:
                                 System.out.println(libro1.devolver());
@@ -106,6 +106,7 @@ public class ejercicio2 {
                 
                 
             }
+            sn.close();
            
     }
     
