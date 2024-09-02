@@ -16,7 +16,7 @@ public class ejercicio2 {
             
             while(!salir){
                 
-                System.out.println("1. cunsultar disponibilidad");
+                System.out.println("1. cunsultar informacion de un libro");
                 System.out.println("2. solicitar un libro");
                 System.out.println("3. devolver un libro");
                 System.out.println("4. Salir");
@@ -30,19 +30,19 @@ public class ejercicio2 {
                         int numLibro = scanner.nextInt();
                         switch(numLibro){
                             case 1:
-                                System.out.println(libro1.disponibilidad());
+                                System.out.println(libro1.info());
                                 break;
                             case 2:
-                                System.out.println(libro2.disponibilidad());
+                                System.out.println(libro2.info());
                                 break;
                             case 3:
-                                System.out.println(libro3.disponibilidad());
+                                System.out.println(libro3.info());
                                 break;
                             case 4:
-                                System.out.println(libro4.disponibilidad());
+                                System.out.println(libro4.info());
                                 break;
                             case 5:
-                                System.out.println(libro5.disponibilidad());
+                                System.out.println(libro5.info());
                                 break;
                             default:
                                 System.out.println("Solo números entre 1 y 5");
@@ -103,10 +103,10 @@ public class ejercicio2 {
                      default:
                         System.out.println("Solo números entre 1 y 4");
                 }
-                sn.close();
+                
                 
             }
-            scanner.close();
+           
     }
     
 }

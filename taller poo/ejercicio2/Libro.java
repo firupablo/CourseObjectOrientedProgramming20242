@@ -15,11 +15,11 @@ public class Libro {
         this.prestado = prestado;
     }
 
-    public String disponibilidad() {
+    public String info() {
         if(prestado){
-            return "El libro " + titulo + " no esta disponible";
+            return "El libro " + titulo + " , " + autor + "; ISBN: " + ISBN+ ", " + numPaginas + " pgs. " +" no esta disponible";
         }else{
-            return "El libro " + titulo + " esta disponible";
+            return "El libro " + titulo + " , " + autor + "; ISBN: " + ISBN+ ", " + numPaginas + " pgs. " +" esta disponible";
         }
     }
 
