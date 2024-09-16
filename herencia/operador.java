@@ -1,6 +1,7 @@
 public class operador extends Trabajador{
     public final double VALOR_HORA = 60000;
     private double horasTrabajadas;
+    private double salario;
 
     public operador(int id, String nombre, String apellido, double horasTrabajadas) {
         super(id, nombre, apellido);
@@ -12,7 +13,8 @@ public class operador extends Trabajador{
     }
 
     public double salario() {
-        return VALOR_HORA * horasTrabajadas;
+        salario = VALOR_HORA * horasTrabajadas;
+        return salario;
     }
 
     
