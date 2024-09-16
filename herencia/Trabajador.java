@@ -1,12 +1,12 @@
 public class Trabajador  {
     private int id;
     private String nombre;
-    private String apellido;
+    private String area;
 
-    public Trabajador(int id, String nombre, String apellido) {
+    public Trabajador(int id, String nombre, String area) {
         this.id = id;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.area = area;
     }
 
     public int getId() {
@@ -17,17 +17,18 @@ public class Trabajador  {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getArea() {
+        return area;
     }
 
     @Override
     public String toString() {
-        return "Trabajador [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+        return "Trabajador [id=" + id + ", nombre=" + nombre + ", area=" + area + "]";
     }
 
     public double salario() {
-        System.out.println("Trabajador trabajando");
+        return 0.0;
     }
+
 
 }
