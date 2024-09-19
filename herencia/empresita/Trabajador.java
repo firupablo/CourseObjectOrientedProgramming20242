@@ -1,3 +1,4 @@
+package empresita;
 public class Trabajador  {
     private int id;
     private String nombre;
