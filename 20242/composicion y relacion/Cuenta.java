@@ -56,17 +56,18 @@ public class Cuenta {
     }
 
     public String retirar(String numCuenta, double valor){
+        String msg = "error en la transacion";
         if (numCuenta.equals(this.numCuenta)){
             if (this.saldo >= valor){
                 this.saldo -= valor;
-                return "retiso exitoso....saldo actual : ";
+                msg = "transacion exitosa....saldo actual : " + this.saldo; 
             }
         }   
-        return "error en la transacion";
+        return msg;
     }
 
     public String transferir(String numCuentaOrigen, Cuenta numCuentaDestino, double valor){
-        if (retirar(numCuentaOrigen, valor)) {
+        if (retirar(numCuentaOrigen, valor).contains("exitosa")) {
             numCuentaDestino.consignar(numCuentaDestino.getNumCuenta(), valor);
             return "transferencia exitosa";
         } else {
