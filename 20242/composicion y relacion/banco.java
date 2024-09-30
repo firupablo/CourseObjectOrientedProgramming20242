@@ -46,13 +46,13 @@ public class banco {
     }
     
 
-    public boolean esCliente(Cliente cliente){
-        boolean flag = false;
+    public String esCliente(Cliente cliente){
+        String msg = "no es cliente";
         if (cliente instanceof Cliente){
-            flag = true;
+            msg = "si es cliente";
         }
 
-        return flag;
+        return msg;
     }
 
     

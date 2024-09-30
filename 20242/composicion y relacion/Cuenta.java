@@ -38,6 +38,14 @@ public class Cuenta {
         return "Cuenta [numCuenta=" + numCuenta + ", tipoCuenta=" + tipoCuenta + ", saldo=" + saldo + "]";
     }
 
+    public String consultarSaldo(String numCuenta){
+        String msg = "error en la transacion";
+        if (numCuenta.equals(this.numCuenta)){
+            msg = "saldo actual : " + this.saldo;
+        }     
+        return msg;  
+    }
+
     public String consignar(String numCuenta, double valor){
         String msg = "error en la transacion";
         if (numCuenta.equals(this.numCuenta)){
@@ -45,6 +53,25 @@ public class Cuenta {
             msg = "transacion exitosa....saldo actual : " + this.saldo;
         }
         return msg;
+    }
+
+    public String retirar(String numCuenta, double valor){
+        if (numCuenta.equals(this.numCuenta)){
+            if (this.saldo >= valor){
+                this.saldo -= valor;
+                return "retiso exitoso....saldo actual : ";
+            }
+        }   
+        return "error en la transacion";
+    }
+
+    public String transferir(String numCuentaOrigen, Cuenta numCuentaDestino, double valor){
+        if (retirar(numCuentaOrigen, valor)) {
+            numCuentaDestino.consignar(numCuentaDestino.getNumCuenta(), valor);
+            return "transferencia exitosa";
+        } else {
+            return "error en la transaccion";
+        }
     }
 
 }
