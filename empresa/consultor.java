@@ -16,7 +16,7 @@ public class consultor extends trabajador{
         this.comision = comision;
     }
 
-    public double calcularSalario() {
+    public double pagarSalario() {
         return SALARIO_FIJO + comision;
     }
 

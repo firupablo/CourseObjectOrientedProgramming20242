@@ -15,7 +15,7 @@ public class operario extends trabajador {
         this.horasTrabajadas = horasTrabajadas;
     }
 
-    public double getSalario() {
+    public double pagarSalario() {
         return VALOR_HORA * horasTrabajadas;
     }
 

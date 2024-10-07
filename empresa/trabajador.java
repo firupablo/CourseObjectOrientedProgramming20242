@@ -33,7 +33,7 @@ public class trabajador {
         return puesto;
     }
 
-    public double getSalario() {
+    public double pagarSalario() {
         return salario;
     }
 
