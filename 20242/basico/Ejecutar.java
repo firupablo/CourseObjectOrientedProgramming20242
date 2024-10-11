@@ -1,3 +1,4 @@
+package basico;
 public class Ejecutar {
     public static void main(String[] args) {
         // Crear un objeto de la clase Marcador

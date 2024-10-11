@@ -1,4 +1,4 @@
-package empresita;
+package herencia.empresita;
 public class ejecutar {
     public static void main(String[] args) {
         //vendedores

@@ -1,3 +1,4 @@
+package empresa;
 public class analista extends trabajador {
     private double salarioIntegral;
     private double lineasCodigo;
