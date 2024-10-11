@@ -1,4 +1,5 @@
 
+package arraylistScanner;
 public class foto {
     private String fichero;
 
@@ -17,4 +18,11 @@ public class foto {
     public void imprimir() {
         System.out.println("Imprimiendo foto: " + fichero);
     }
+
+    @Override
+    public String toString() {
+        return "foto [Fichero: " + fichero + ", Codigo: " + hashCode() + "]";
+    }
+
+    
 }

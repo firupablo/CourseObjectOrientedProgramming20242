@@ -1,4 +1,4 @@
-
+package arraylistScanner;
 public class cliente {
     private String cedula;
     private String nombre;

@@ -1,4 +1,4 @@
-
+package arraylist;
 public class producto {
     private int numero;
 
