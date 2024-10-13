@@ -1,4 +1,4 @@
-package empresita;
+package herencia.empresita;
 public class vendedor extends Trabajador{
 
     public final double VENTA= 120000;

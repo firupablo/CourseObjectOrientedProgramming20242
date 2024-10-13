@@ -1,4 +1,4 @@
-
+package empresa;
 public class trabajador {
     private String nombre;
     private int edad;

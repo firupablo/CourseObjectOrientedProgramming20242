@@ -1,4 +1,4 @@
-package empresita;
+package herencia.empresita;
 public class operador extends Trabajador{
     public final double VALOR_HORA = 60000;
     private double horasTrabajadas;

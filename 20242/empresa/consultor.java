@@ -1,4 +1,4 @@
-
+package empresa;
 public class consultor extends trabajador{
     public final double SALARIO_FIJO = 1600000;
     private double comision;

@@ -1,3 +1,4 @@
+package empresa;
 public class nomina {
     public static void main(String[] args) {
         trabajador[] trabajadores = new trabajador[4];

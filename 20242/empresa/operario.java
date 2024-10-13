@@ -1,3 +1,4 @@
+package empresa;
 public class operario extends trabajador {
     private final double VALOR_HORA = 50000;
     private int horasTrabajadas;
