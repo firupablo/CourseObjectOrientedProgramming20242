@@ -12,8 +12,6 @@ public class producto {
 
     public void setNumero(int numero) {
         this.numero = numero;
-    }
-
-    
+    }    
     
 }

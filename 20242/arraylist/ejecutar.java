@@ -60,9 +60,9 @@ public class ejecutar {
 
     // Método para crear una impresión
     public static Impresion crearImpresion(int numero, String color) {
-        Impresion impresion = new Impresion(numero, color);
+        producto impresion = new Impresion(numero, color);
         System.out.println("Impresión creada: Número " + numero + ", Color " + color);
-        return impresion;
+        return (Impresion) impresion;   
     }
 
     // Método para agregar una foto a una impresión
@@ -74,9 +74,9 @@ public class ejecutar {
 
     // Método para crear una cámara
     public static camara crearCamara(int numero, String marca, String modelo) {
-        camara camara = new camara(numero, marca, modelo);
+        producto camara = new camara(numero, marca, modelo);
         System.out.println("Cámara creada: Marca " + marca + ", Modelo " + modelo);
-        return camara;
+        return (camara) camara;
     }
 
     // Método para agregar un producto (Impresión o Cámara) al pedido
