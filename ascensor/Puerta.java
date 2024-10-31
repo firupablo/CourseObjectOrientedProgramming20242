@@ -1,42 +1,22 @@
 package ascensor;
-
 public class Puerta {
-    private String estado;
+    private boolean abierta;
 
-    public Puerta(String estado) {
-        this.estado = estado;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    @Override
-    public String toString() {
-        return "Puerta [estado=" + estado + "]";
+    public Puerta() {
+        this.abierta = false;
     }
 
     public void abrir() {
-        System.out.println("La puerta se abre");
-        estado = "abierta";
+        abierta = true;
+        System.out.println("Puerta abierta.");
     }
 
     public void cerrar() {
-        System.out.println("La puerta se cierra");
-        estado = "cerrada";
+        abierta = false;
+        System.out.println("Puerta cerrada.");
     }
 
-    public void detectarObstaculo() {
-        System.out.println("la puerta detecta un obstaculo");
-        estado = "abierta";
+    public boolean isAbierta() {
+        return abierta;
     }
-
-    public void mantenerAbierta() {
-        System.out.println("La puerta se mantiene abierta");
-        estado = "abierta";
-    }   
 }

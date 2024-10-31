@@ -1,37 +1,25 @@
 package ascensor;
 
 public class Piso {
-    private int numeroPiso;
-    private int solicitudes;
+    private int numero;
+    private Boton botonSubida;
+    private Boton botonBajada;
 
-    public Piso(int numeroPiso, int solicitudes) {
-        this.numeroPiso = numeroPiso;
-        this.solicitudes = solicitudes;
+    public Piso(int numero) {
+        this.numero = numero;
+        this.botonSubida = new Boton("subida");
+        this.botonBajada = new Boton("bajada");
     }
 
-    public int getNumeroPiso() {
-        return numeroPiso;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setNumeroPiso(int numeroPiso) {
-        this.numeroPiso = numeroPiso;
+    public Boton getBotonSubida() {
+        return botonSubida;
     }
 
-    public int getSolicitudes() {
-        return solicitudes;
-    }
-
-    public void setSolicitudes(int solicitudes) {
-        this.solicitudes = solicitudes;
-    }
-
-    @Override
-    public String toString() {
-        return "Piso [numeroPiso=" + numeroPiso + ", solicitudes=" + solicitudes + "]";
-    }
-
-    public void solicitarAscensor(String direccion) {
-        System.out.println("El piso " + numeroPiso + " solicita un ascensor hacia " + direccion);
-        solicitudes++;
+    public Boton getBotonBajada() {
+        return botonBajada;
     }
 }

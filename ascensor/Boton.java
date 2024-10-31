@@ -1,47 +1,20 @@
 package ascensor;
-
 public class Boton {
-    private String tipo;
-    private String iluminado;
+    private String tipo; // "subida", "bajada", o "seleccion de piso"
+    private boolean iluminado;
 
-    public Boton(String tipo, String iluminado) {
+    public Boton(String tipo) {
         this.tipo = tipo;
-        this.iluminado = iluminado;
+        this.iluminado = false;
     }
 
-    public String getTipo() {
-        return tipo;
+    public void presionar() {
+        iluminado = true;
+        System.out.println("Botón de " + tipo + " presionado, 'sonidito'..iluminado......apagado");
+
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getIluminado() {
+    public boolean isIluminado() {
         return iluminado;
     }
-
-    public void setIluminado(String iluminado) {
-        this.iluminado = iluminado;
-    }
-
-    @Override
-    public String toString() {
-        return "Boton [tipo=" + tipo + ", iluminado=" + iluminado + "]";
-    }
-    
-    public void activar(){
-        System.out.println("El boton se ha activado");
-        iluminado = "encendido";
-        System.out.println("El boton esta " + iluminado + " sonido de timbre");
-        try {
-            Thread.sleep(2000); // Espera 2 segundos
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        
-        iluminado = "el boton esta apagado";
-    }
-
-
 }
