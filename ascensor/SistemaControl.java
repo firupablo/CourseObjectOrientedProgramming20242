@@ -193,25 +193,25 @@ public class SistemaControl {
 
         new Thread(() -> {
             try {
-                Thread.sleep(2000); // Espera 2 segundos
+                Thread.sleep(1000); // Espera 1 segundos
                 seleccionarPiso(3);
 
-                Thread.sleep(4000); // Espera 2 segundos
+                Thread.sleep(4000); // Espera 4 segundos
                 mantenerPuertasAbiertas();
 
                 Thread.sleep(2000); // Espera 2 segundos
                 solicitarAscensor(1, "bajada");
 
-                Thread.sleep(4000); // Espera 2 segundos
+                Thread.sleep(4000); // Espera 4 segundos
                 detectarObstaculo(true);
 
-                Thread.sleep(2000); // Espera 2 segundos
+                Thread.sleep(2000); // Espera 4 segundos
                 detectarObstaculo(false);
 
                 Thread.sleep(2000); // Espera 2 segundos
                 seleccionarPiso(2);
 
-                Thread.sleep(4000); // Espera 2 segundos
+                Thread.sleep(4000); // Espera 4 segundos
                 activarBotonEmergencia();
 
                 Thread.sleep(1000); // Espera 2 segundos
