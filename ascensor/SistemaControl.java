@@ -7,18 +7,23 @@ public class SistemaControl {
     private Ascensor ascensor;
     private List<Piso> pisos;
     private List<Integer> solicitudes;
+    private List<BotonAscensor> botonAscensor;
     private boolean obstaculoDetectado = false;
-    private boolean botonEmergencia = false;
     private boolean puertasAbiertas = false;
-    private Boton boton = new Boton("piso");
-    private Boton botonsub = new Boton("subida");
-    private Boton botonbaj = new Boton("bajada");
+    private Boton botonSubida = new BotonPiso("subida");
+    private Boton botonBajada = new BotonPiso("bajada");
+    private Boton BotonEmergencia = new BotonEmergencia(false);
+    private Boton BotonAbrir = new BotonAbrir(false);
+
+
 
     public SistemaControl(int numPisos, int pisoInicial) {
         ascensor = new Ascensor(pisoInicial);
         pisos = new ArrayList<>();
+        botonAscensor = new ArrayList<>();
         for (int i = 1; i <= numPisos; i++) {
             pisos.add(new Piso(i));
+            botonAscensor.add(new BotonAscensor(i));
         }
         solicitudes = new ArrayList<>();
     }
@@ -27,9 +32,9 @@ public class SistemaControl {
         if (!solicitudes.contains(piso)) { // Evita duplicados
             solicitudes.add(piso);
             if (direccion.equals("subida")) {
-                botonsub.presionar();
+                botonSubida.presionar();
             } else {
-                botonbaj.presionar();
+                botonBajada.presionar();
             }
             System.out.println("Solicitud registrada para el piso " + piso + " en dirección " + direccion);
 
@@ -39,7 +44,7 @@ public class SistemaControl {
     public void seleccionarPiso(int piso) {
         if (!solicitudes.contains(piso)) {
             solicitudes.add(piso);
-            boton.presionar();
+            botonAscensor.get(piso - 1).presionar();
             System.out.println("Piso seleccionado: " + piso);
             System.out.println("Solicitud registrada para el piso " + piso);
 
@@ -61,6 +66,12 @@ public class SistemaControl {
     }
 
     public void mantenerPuertasAbiertas() {
+        BotonAbrir.presionar();
+        if (ascensor.getPisoActual() == ascensor.getPisoDestino()) {
+            System.out.println("para abrir las puertas el ascensor debe estar en el piso destino");
+            return;
+            
+        }else {
         puertasAbiertas = true;
         ascensor.abrirPuertas();
         System.out.println("Manteniendo puertas abiertas por tiempo adicional.");
@@ -70,14 +81,17 @@ public class SistemaControl {
             e.printStackTrace();
         }
         puertasAbiertas = false;
-        if (!obstaculoDetectado && !botonEmergencia) {
-            ascensor.cerrarPuertas();
+        if (!obstaculoDetectado && !((BotonEmergencia) BotonEmergencia).getEmergencia()) {
             System.out.println("Las puertas se cierran después del tiempo adicional.");
+            ascensor.cerrarPuertas();
+            
+        }
+
         }
     }
 
     public void activarBotonEmergencia() {
-        botonEmergencia = true;
+        BotonEmergencia.presionar();
         ascensor.detenerAscensor();
         ascensor.abrirPuertas();
         puertasAbiertas = true;
@@ -85,7 +99,7 @@ public class SistemaControl {
     }
 
     public void desactivarBotonEmergencia() {
-        botonEmergencia = false;
+        ((BotonEmergencia) BotonEmergencia).setEmergencia(false);
         puertasAbiertas = false;
         System.out.println("Botón de emergencia desactivado. El ascensor se reanuda.");
         ascensor.reanudarMovimiento();
@@ -140,17 +154,17 @@ public class SistemaControl {
 
         if (pisoActual < destino) {
             direccion = "subiendo";
-        } else if (pisoActual > destino) {
+        }else if(pisoActual > destino){
             direccion = "bajando";
         }
         ascensor.setDireccion(direccion);
 
         while (pisoActual != destino) {
-            if (botonEmergencia || obstaculoDetectado || puertasAbiertas) {
+            if (((BotonEmergencia) BotonEmergencia).getEmergencia() || obstaculoDetectado || puertasAbiertas) {
                 System.out.println("Ascensor detenido debido a una condición de emergencia.");
-                while (botonEmergencia || obstaculoDetectado || puertasAbiertas) {
+                while (((BotonEmergencia) BotonEmergencia).getEmergencia() || obstaculoDetectado || puertasAbiertas) {
                     try {
-                        Thread.sleep(1000); // Espera 1 segundo antes de verificar nuevamente
+                        Thread.sleep(1500); // Espera 1.5 segundo antes de verificar nuevamente
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -172,6 +186,7 @@ public class SistemaControl {
                 puertasAbiertas = true;
                 System.out.println("Ascensor detenido en el piso " + pisoActual + " para atender solicitud.");
                 solicitudes.remove((Integer) pisoActual);
+                botonAscensor.get(pisoActual - 1).apagar();
                 ascensor.cerrarPuertas();
                 puertasAbiertas = false;
             }
@@ -189,18 +204,20 @@ public class SistemaControl {
     public void ejemploFuncionamiento() {
         System.out.println("Inicio del ejemplo de funcionamiento del sistema de control de ascensores.");
 
-        solicitarAscensor(5, "subida");
+        solicitarAscensor(8, "subida");
+ 
+
 
         new Thread(() -> {
             try {
                 Thread.sleep(1000); // Espera 1 segundos
-                seleccionarPiso(3);
+                seleccionarPiso(4);
 
                 Thread.sleep(4000); // Espera 4 segundos
                 mantenerPuertasAbiertas();
 
                 Thread.sleep(2000); // Espera 2 segundos
-                solicitarAscensor(1, "bajada");
+                solicitarAscensor(10, "bajada");
 
                 Thread.sleep(4000); // Espera 4 segundos
                 detectarObstaculo(true);
@@ -217,6 +234,9 @@ public class SistemaControl {
                 Thread.sleep(1000); // Espera 2 segundos
                 desactivarBotonEmergencia();
 
+                Thread.sleep(2000); // Espera 2 segundos
+                seleccionarPiso(5);
+
                 procesarSolicitudes();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -228,7 +248,7 @@ public class SistemaControl {
     }
 
     public static void main(String[] args) {
-        SistemaControl sistemaControl = new SistemaControl(5, 1);
+        SistemaControl sistemaControl = new SistemaControl(10, 1);
         sistemaControl.ejemploFuncionamiento();
     }
 }

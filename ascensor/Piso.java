@@ -2,13 +2,13 @@ package ascensor;
 
 public class Piso {
     private int numero;
-    private Boton botonSubida;
-    private Boton botonBajada;
+    private BotonPiso botonSubida;
+    private BotonPiso botonBajada;
 
     public Piso(int numero) {
         this.numero = numero;
-        this.botonSubida = new Boton("subida");
-        this.botonBajada = new Boton("bajada");
+        this.botonSubida = new BotonPiso("subida");
+        this.botonBajada = new BotonPiso("bajada");
     }
 
     public int getNumero() {

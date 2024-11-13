@@ -1,5 +1,5 @@
 package ascensor;
-public class Boton {
+public abstract class Boton {
     private String tipo; // "subida", "bajada", o "seleccion de piso"
     private boolean iluminado;
     private boolean sonido;
@@ -13,14 +13,27 @@ public class Boton {
     public void presionar() {
         iluminado = true;
         sonido = true;
-        System.out.println("Botón de " + tipo + " presionado, 'sonidito'..iluminado......apagado");
-        iluminado = false;
+        System.out.println("Botón de " + tipo + " presionado, 'sonidito'..iluminado");
         sonido = false;
+    }
+
+    public void apagar() {
+        iluminado = false;
 
     }
 
     public String getTipo() {
         return tipo;
     }
+
+    public boolean isIluminado() {
+        return iluminado;
+    }
+
+    public boolean isSonido() {
+        return sonido;
+    }
+
+
 
 }
