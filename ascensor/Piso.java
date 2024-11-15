@@ -1,9 +1,9 @@
 package ascensor;
 
 public class Piso {
-    private int numero;
-    private BotonPiso botonSubida;
-    private BotonPiso botonBajada;
+    private int numero;// número del piso
+    private BotonPiso botonSubida;// botón de subida
+    private BotonPiso botonBajada;// botón de bajada
 
     public Piso(int numero) {
         this.numero = numero;
@@ -11,6 +11,7 @@ public class Piso {
         this.botonBajada = new BotonPiso("bajada");
     }
 
+    // Getters
     public int getNumero() {
         return numero;
     }
