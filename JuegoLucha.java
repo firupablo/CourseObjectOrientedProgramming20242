@@ -1,16 +1,22 @@
-
 import java.util.Scanner;
+
 class JuegoLucha {
     private Personaje jugador1;
     private Personaje jugador2;
 
-    // Constructor para inicializar los personajes
+    /**
+     * Constructor para inicializar los personajes.
+     * @param nombre1 Nombre del primer jugador.
+     * @param nombre2 Nombre del segundo jugador.
+     */
     public JuegoLucha(String nombre1, String nombre2) {
         this.jugador1 = new Personaje(nombre1);
         this.jugador2 = new Personaje(nombre2);
     }
 
-    // Método para iniciar la pelea
+    /**
+     * Método para iniciar la pelea entre los dos jugadores.
+     */
     public void iniciarPelea() {
         System.out.println("La pelea comienza entre " + jugador1.getNombre() + " y " + jugador2.getNombre() + "...");
 
@@ -33,14 +39,21 @@ class JuegoLucha {
         }
     }
 
-    // Método que representa un turno de ataque
+    /**
+     * Método que representa un turno de ataque.
+     * @param atacante El personaje que ataca.
+     * @param defensor El personaje que defiende.
+     */
     private void turno(Personaje atacante, Personaje defensor) {
         System.out.println("Turno de " + atacante.getNombre() + ". Puntos de vida de " + defensor.getNombre() + ": " + defensor.getPuntosDeVida());
-        atacante.atacar(defensor , atacante.obtenerArma());
+        atacante.atacar(defensor, atacante.obtenerArma());
         System.out.println(defensor.getNombre() + " ahora tiene " + defensor.getPuntosDeVida() + " puntos de vida y " + defensor.getEstamina() + " puntos de estamina.");
     }
 
-    // Método principal que ejecuta el juego
+    /**
+     * Método principal que ejecuta el juego.
+     * @param args Argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -54,5 +67,4 @@ class JuegoLucha {
         juego.iniciarPelea();
         scanner.close();
     }
-    
 }
